@@ -5,9 +5,9 @@ In order to simulate a virtual network we are going to use Mininet.
 I created this project on Ubuntu 22.04 machine, so the next few commands will be 
 for bash.
 To install Mininet you need to use :
-    sudo apt update
-    sudo apt install mininet openvswitch-testcontroller tshark python3-click python3-scapy xterm
-    sudo pip3 install mininet
+	sudo apt update
+	sudo apt install mininet openvswitch-testcontroller tshark python3-click python3-scapy xterm
+	sudo pip3 install mininet
 
 There is a Makefile in the root folder of the project, for compiling the project:
     make 
