@@ -5,22 +5,30 @@ In order to simulate a virtual network we are going to use Mininet.
 I created this project on Ubuntu 22.04 machine, so the next few commands will be 
 for bash.
 To install Mininet you need to use :
-	sudo apt update
-	sudo apt install mininet openvswitch-testcontroller tshark python3-click python3-scapy xterm
-	sudo pip3 install mininet
+```
+sudo apt update
+sudo apt install mininet openvswitch-testcontroller tshark python3-click python3-scapy xterm
+sudo pip3 install mininet
+```
 
 There is a Makefile in the root folder of the project, for compiling the project:
-    make 
+```
+make
+``` 
 
 For launching each router individually:
-    make run_router0    
-    make run_router1    
-
+```
+make run_router0    
+make run_router1    
+```
 For launching the topology, which consists of 2 routers, and 4 hosts, you need to execute from the root folder:
-    sudo python3 checker/topo.py
-    
+```
+sudo python3 checker/topo.py
+```    
 There is a set of standard tests, in order to check their results:
-    ./checker/checker.sh
+```
+./checker/checker.sh
+```
     
     
 ## The actual implementation
@@ -44,12 +52,13 @@ prefixes are equal, also in decending order by comparing the masks. But it does 
 properly so I let it be. After finding the next hop, I recalculate the checksum, and the 
 real fun begins. I have to figure out the mac address of the next_hop. I refused to use 
 the "arp_table.txt" file because I wanted the ARP points. So first of all I create my own
-
+```
 typedef struct arp_table
 {
 	struct arp_entry *vector;
 	int size;
-} arp_table; 
+} arp_table;
+``` 
 
 I allocate memory for the vector, and I am using it to store the mac address of already 
 known hosts. I first try to iterate through every element of the arp_table->vector. If I
